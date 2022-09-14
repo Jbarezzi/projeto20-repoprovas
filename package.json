@@ -1,13 +1,13 @@
 {
   "name": "projeto20-repoprovas",
   "version": "1.0.0",
-  "description": "<div align=\"center\">   <a href=\"https://github.com/Jbarezzi/Node-Express-TS-Template\">     <img src=\"https://cdn-icons-png.flaticon.com/512/5968/5968381.png\"  alt=\"TypeScriptLogo\" width=\"100\">   </a>",
-  "main": "setup.js",
+  "main": "server.js",
   "directories": {
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/server.ts"
   },
   "repository": {
     "type": "git",
