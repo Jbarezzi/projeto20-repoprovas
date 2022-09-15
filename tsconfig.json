@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es2016",
     "module": "commonjs",
-    "rootDir": ["./src", "./tests"],
+    "rootDirs": ["./src", "./tests"],
     "sourceMap": true,
     "outDir": "./dist",
     "removeComments": true,
