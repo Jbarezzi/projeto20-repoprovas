@@ -1,5 +1,7 @@
 # folders
 node_modules
+coverage
+dist
 
 # files
 .env
