@@ -9,6 +9,9 @@
     "test": "jest --no-cache",
     "dev": "nodemon ./src/server.ts"
   },
+  "prisma": {
+    "seed": "ts-node --transpile-only prisma/seed.ts"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Jbarezzi/projeto20-repoprovas.git"
