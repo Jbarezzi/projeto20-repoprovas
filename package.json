@@ -6,6 +6,8 @@
     "test": "tests"
   },
   "scripts": {
+    "build": "tsc && prisma migrate deploy",
+    "start": "node ./dist/server.js", 
     "test": "jest --no-cache",
     "dev": "nodemon ./src/server.ts"
   },
