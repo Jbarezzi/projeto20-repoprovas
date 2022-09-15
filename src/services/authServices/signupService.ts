@@ -7,7 +7,7 @@ import { conflict } from "../../utils/errorFactory";
 
 export async function signup(newUser: ISign) {
   await verifyIfEmailExists(newUser.email);
-  verifyIfPasswordIsCorrect(newUser.password, newUser.confirmPassword!);
+  await verifyIfPasswordIsCorrect(newUser.password, newUser.confirmPassword!);
   newUser.password = await encryptPassword(newUser.password);
   await authRepository.insert(newUser);
 }
