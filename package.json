@@ -8,8 +8,8 @@
   "scripts": {
     "build": "npx tsc && npx prisma generate && npx prisma migrate deploy",
     "start": "node ./dist/src/server.js",
-    "test": "jest --no-cache",
-    "dev": "nodemon ./src/server.ts"
+    "test": "NODE_ENV=test jest --no-cache",
+    "dev": "NODE_ENV=dev nodemon ./src/server.ts"
   },
   "prisma": {
     "seed": "ts-node --transpile-only prisma/seed.ts"
