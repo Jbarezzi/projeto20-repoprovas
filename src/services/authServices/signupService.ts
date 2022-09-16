@@ -1,6 +1,6 @@
 import { User } from "@prisma/client";
 import bcrypt from "bcrypt";
-import { ISign } from "../../interfaces/authTypes";
+import { ISign } from "../../interfaces/authInterfaces";
 import { errorFactory } from "../../utils";
 import { authRepository } from "../../repositories";
 import { conflict } from "../../utils/errorFactory";
