@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { Schema } from "joi";
 import { errorFactory } from "../utils";
 
-export const joiValidator = (schema: Schema) => {
+export const validateSchemaMiddleware = (schema: Schema) => {
   return (req: Request, _res: Response, next: NextFunction) => {
     const body: object = req.body;
     const { error } = schema.validate(body, { abortEarly: false });

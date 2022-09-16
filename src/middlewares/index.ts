@@ -1,2 +1,2 @@
-export * from "./joiValidator";
-export * from "./errorHandler";
+export * from "./validateSchemaMiddleware";
+export * from "./errorHandlerMiddleware";

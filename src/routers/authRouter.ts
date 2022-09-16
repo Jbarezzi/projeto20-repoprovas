@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { joiValidator } from "../middlewares";
+import { validateSchemaMiddleware } from "../middlewares";
 import { authSchemas } from "../schemas";
 import { authController } from "./../controllers";
 
@@ -7,11 +7,11 @@ export const authRouter = Router();
 
 authRouter.post(
   "/signup",
-  joiValidator(authSchemas.signupSchema),
+  validateSchemaMiddleware(authSchemas.signupSchema),
   authController.signup
 );
 authRouter.post(
   "/signin",
-  joiValidator(authSchemas.signinSchema),
+  validateSchemaMiddleware(authSchemas.signinSchema),
   authController.signin
 );
