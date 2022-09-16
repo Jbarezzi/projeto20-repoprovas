@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { ISign } from "../interfaces/authTypes";
+import { ISign } from "../interfaces/authInterfaces";
 import { authService } from "../services";
 
 export async function signup(req: Request, res: Response) {
@@ -9,7 +9,7 @@ export async function signup(req: Request, res: Response) {
 }
 
 export async function signin(req: Request, res: Response) {
-  const newUser: ISign = req.body;
-  const token = await authService.signin(newUser);
+  const user: ISign = req.body;
+  const token: string = await authService.signin(user);
   res.status(200).send(token);
 }
