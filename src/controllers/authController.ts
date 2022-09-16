@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { ISign } from "../interfaces/authTypes";
+import { ISign } from "../interfaces/authInterfaces";
 import { authService } from "../services";
 
 export async function signup(req: Request, res: Response) {
