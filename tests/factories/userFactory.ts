@@ -2,15 +2,6 @@ import { randEmail, randUser } from "@ngneat/falso";
 
 export function __createUser() {
   const user = {
-    email: randEmail(),
-    password: "1234",
-    confirmPassword: "1234",
-  };
-  return user;
-}
-
-export function __createExistentUser() {
-  const user = {
     email: "test@test.com",
     password: "1234",
     confirmPassword: "1234",
@@ -21,8 +12,8 @@ export function __createExistentUser() {
 export function __createUserWithMismatchedPasswords() {
   const user = {
     email: randEmail(),
-    password: "123",
-    confirmPassword: "1234",
+    password: "1234",
+    confirmPassword: "123",
   };
   return user;
 }
@@ -32,6 +23,14 @@ export function __createUserWithInvalidEmail() {
     email: randUser().username,
     password: "1234",
     confirmPassword: "1234",
+  };
+  return user;
+}
+
+export function __createUserWithWrongPassword() {
+  const user = {
+    email: "test@test.com",
+    password: "123",
   };
   return user;
 }

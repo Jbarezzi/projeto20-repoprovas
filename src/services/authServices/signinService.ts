@@ -27,6 +27,6 @@ function createJwtToken(userId: Number) {
   const payload = { id: userId };
   const JWT_SECRET = process.env.TOKEN_SECRET;
   const JWT_CONFIG = { expiresIn: process.env.TOKEN_EXPIRES_IN };
-  const token = jwt.sign(payload, JWT_SECRET, JWT_CONFIG);
+  const token = jwt.sign(payload, JWT_SECRET!, JWT_CONFIG);
   return token;
 }
