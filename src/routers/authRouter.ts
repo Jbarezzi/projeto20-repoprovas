@@ -7,11 +7,11 @@ export const authRouter = Router();
 
 authRouter.post(
   "/signup",
-  validateSchemaMiddleware(authSchemas.signupSchema),
+  validateSchemaMiddleware(authSchemas.signup),
   authController.signup
 );
 authRouter.post(
   "/signin",
-  validateSchemaMiddleware(authSchemas.signinSchema),
+  validateSchemaMiddleware(authSchemas.signin),
   authController.signin
 );
