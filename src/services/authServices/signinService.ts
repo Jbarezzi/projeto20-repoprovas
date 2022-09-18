@@ -6,7 +6,7 @@ import { errorFactory } from "../../utils";
 
 export async function signin(user: ISign) {
   const userRegistered = await authRepository.findByEmail(user.email);
-  verifyIfUserExists(userRegistered);
+  await verifyIfUserExists(userRegistered);
   const dbPassword = userRegistered?.password ?? "";
   const userId = Number(userRegistered?.id) ?? 0;
   await verifyIfPasswordIsCorrect(dbPassword, user.password);
@@ -14,7 +14,7 @@ export async function signin(user: ISign) {
   return token;
 }
 
-function verifyIfUserExists(user: ISign | null) {
+async function verifyIfUserExists(user: ISign | null) {
   if (user === null) throw errorFactory.notFound("User");
 }
 
