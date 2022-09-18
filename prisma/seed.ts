@@ -2,14 +2,6 @@ import { PrismaClient } from "@prisma/client";
 const client = new PrismaClient();
 
 async function main() {
-  await client.$executeRaw`TRUNCATE TABLE users RESTART IDENTITY CASCADE`;
-  await client.$executeRaw`TRUNCATE TABLE categories RESTART IDENTITY CASCADE`;
-  await client.$executeRaw`TRUNCATE TABLE disciplines RESTART IDENTITY CASCADE`;
-  await client.$executeRaw`TRUNCATE TABLE teachers RESTART IDENTITY CASCADE`;
-  await client.$executeRaw`TRUNCATE TABLE terms RESTART IDENTITY CASCADE`;
-  await client.$executeRaw`TRUNCATE TABLE "teachersDisciplines" RESTART IDENTITY CASCADE`;
-  await client.$executeRaw`TRUNCATE TABLE tests RESTART IDENTITY CASCADE;`;
-
   await client.$executeRaw`INSERT INTO terms ("number") VALUES (1);`;
   await client.$executeRaw`INSERT INTO terms ("number") VALUES (2);`;
   await client.$executeRaw`INSERT INTO terms ("number") VALUES (3);`;
@@ -37,6 +29,14 @@ async function main() {
   await client.$executeRaw`INSERT INTO "teachersDisciplines" ("teacherId", "disciplineId") VALUES (2, 4);`;
   await client.$executeRaw`INSERT INTO "teachersDisciplines" ("teacherId", "disciplineId") VALUES (2, 5);`;
   await client.$executeRaw`INSERT INTO "teachersDisciplines" ("teacherId", "disciplineId") VALUES (2, 6);`;
+
+  await client.$executeRaw`TRUNCATE TABLE users RESTART IDENTITY CASCADE`;
+  await client.$executeRaw`TRUNCATE TABLE categories RESTART IDENTITY CASCADE`;
+  await client.$executeRaw`TRUNCATE TABLE disciplines RESTART IDENTITY CASCADE`;
+  await client.$executeRaw`TRUNCATE TABLE teachers RESTART IDENTITY CASCADE`;
+  await client.$executeRaw`TRUNCATE TABLE terms RESTART IDENTITY CASCADE`;
+  await client.$executeRaw`TRUNCATE TABLE "teachersDisciplines" RESTART IDENTITY CASCADE`;
+  await client.$executeRaw`TRUNCATE TABLE tests RESTART IDENTITY CASCADE;`;
 }
 
 main()
