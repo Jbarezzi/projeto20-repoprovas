@@ -20,13 +20,14 @@ model User {
 }
 
 model Test {
-  id                  Int      @id @default(autoincrement())
+  id                  Int               @id @default(autoincrement())
   name                String
   pdfUrl              String
   categoryId          Int
   teacherDisciplineId Int
-  createdAt           DateTime @default(now())
-  Category            Category @relation(fields: [categoryId], references: [id])
+  createdAt           DateTime          @default(now())
+  Category            Category          @relation(fields: [categoryId], references: [id])
+  TeacherDiscipline   TeacherDiscipline @relation(fields: [teacherDisciplineId], references: [id])
 
   @@map("tests")
 }
@@ -63,6 +64,7 @@ model TeacherDiscipline {
   disciplineId Int
   Discipline   Discipline @relation(fields: [disciplineId], references: [id])
   Teacher      Teacher    @relation(fields: [teacherId], references: [id])
+  Test         Test[]
 
   @@map("teachersDisciplines")
 }

@@ -38,3 +38,33 @@ export async function getTeacherDisciplinesByIds(
   });
   return teacherDisciplines;
 }
+
+export async function getTestsGroupedByDiscipline() {
+  const tests = client.term.findMany({
+    distinct: ["id"],
+    select: {
+      number: true,
+      Discipline: {
+        distinct: ["name"],
+        select: {
+          name: true,
+          TeacherDiscipline: {
+            select: {
+              Teacher: { select: { name: true } },
+              Test: {
+                select: {
+                  name: true,
+                  pdfUrl: true,
+                  Category: { select: { name: true } },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  });
+  return tests;
+}
+
+export async function getTestsGroupedByTeacher() {}

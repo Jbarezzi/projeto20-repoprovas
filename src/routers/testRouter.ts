@@ -14,3 +14,13 @@ testRouter.post(
   validateSchemaMiddleware(testSchemas.insertTest),
   testController.create
 );
+testRouter.get(
+  "/tests-discipline",
+  validateTokenMiddleware,
+  testController.groupTestsByDiscipline
+);
+testRouter.get(
+  "/tests-teacher",
+  validateTokenMiddleware,
+  testController.groupTestsByTeacher
+);
