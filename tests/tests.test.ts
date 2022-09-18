@@ -31,3 +31,29 @@ describe("POST /test", () => {
     expect(result.statusCode).toEqual(404);
   });
 });
+
+describe("/GET /tests-*", () => {
+  it("given a valid token should return array", async () => {
+    const token = userFactory.__createValidToken();
+    const result = await supertest(app).get("/tests-discipline").set(token);
+    expect(result.body).toBeInstanceOf(Array);
+  });
+
+  it("given a invalid token should return 401", async () => {
+    const token = userFactory.__createInvalidToken();
+    const result = await supertest(app).get("/tests-discipline").set(token);
+    expect(result.statusCode).toEqual(401);
+  });
+
+  it("given a valid token should return array", async () => {
+    const token = userFactory.__createValidToken();
+    const result = await supertest(app).get("/tests-teacher").set(token);
+    expect(result.body).toBeInstanceOf(Array);
+  });
+
+  it("given a invalid token should return 401", async () => {
+    const token = userFactory.__createInvalidToken();
+    const result = await supertest(app).get("/tests-teacher").set(token);
+    expect(result.statusCode).toEqual(401);
+  });
+});
