@@ -1,3 +1,4 @@
+import { prisma } from "@prisma/client";
 import client from "../database/prisma";
 import {
   IInsertTestData,
