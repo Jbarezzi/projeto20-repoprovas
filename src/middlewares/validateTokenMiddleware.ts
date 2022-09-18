@@ -11,7 +11,9 @@ export async function validateTokenMiddleware(
   if (authorization === undefined) {
     throw errorFactory.unauthorized("token");
   }
-  const token = authorization?.replace("Bearer ", "");
+  const auth = authorization?.split(" ");
+  if (auth[0] !== "Bearer") throw errorFactory.unauthorized("token");
+  const token = auth[1];
   const JWT_SECRET = process.env.TOKEN_SECRET!;
   jwt.verify(token, JWT_SECRET, (error, payload) => {
     if (error !== null) {
