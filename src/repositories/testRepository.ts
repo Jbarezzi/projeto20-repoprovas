@@ -53,10 +53,13 @@ export async function getTestsGroupedByDiscipline() {
             select: {
               Teacher: { select: { name: true } },
               Test: {
+                distinct: ["categoryId"],
                 select: {
-                  name: true,
-                  pdfUrl: true,
-                  Category: { select: { name: true } },
+                  Category: {
+                    include: {
+                      Test: { select: { id: true, name: true, pdfUrl: true } },
+                    },
+                  },
                 },
               },
             },
@@ -68,4 +71,30 @@ export async function getTestsGroupedByDiscipline() {
   return tests;
 }
 
-export async function getTestsGroupedByTeacher() {}
+export async function getTestsGroupedByTeacher() {
+  const tests = await client.teacher.findMany({
+    distinct: ["id"],
+    select: {
+      name: true,
+      TeacherDiscipline: {
+        select: {
+          Test: {
+            select: {
+              id: true,
+              name: true,
+              pdfUrl: true,
+              TeacherDiscipline: {
+                select: {
+                  Discipline: {
+                    select: { name: true },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  });
+  return tests;
+}
