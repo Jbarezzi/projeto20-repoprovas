@@ -1,0 +1,9 @@
+{
+  "client": "Thunder Client",
+  "environmentName": "Prod Env",
+  "dateExported": "2022-09-18T17:44:04.318Z",
+  "version": "1.0",
+  "variables": [
+    { "name": "url", "value": "https://repo-provas-j.herokuapp.com" }
+  ]
+}
