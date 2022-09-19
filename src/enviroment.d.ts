@@ -5,10 +5,8 @@ declare global {
     interface ProcessEnv {
       PORT: number;
       DATABASE_URL: string;
-      SHADOW_DATABASE_URL: string;
+      NODE_ENV: "dev" | "test";
       TOKEN_SECRET: string;
-      REFRESH_TOKEN: string;
-      TOKEN_EXPIRES_IN: string;
     }
   }
 }

@@ -1,7 +1,11 @@
 import supertest from "supertest";
 import app from "./../src/app";
+import client from "./database/prisma";
 import { userFactory } from "./factories";
 
+beforeAll(async () => {
+  await client.$executeRaw`TRUNCATE TABLE users;`;
+});
 describe("POST /signup", () => {
   it("given a valid user should return 201", async () => {
     const body = userFactory.__createUser();
